@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <title>WhiteBoard</title>
+    <link rel="stylesheet" href="./index.css">
+    <script src="./JS/app.js" defer></script>
+    <script src="./JS/canvas.js" defer></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+
+<body>
+    <nav class="navbar">
+        <div class="tools-burger">
+            <!-- <i class="fa-solid fa-bars" style="font-size: 3rem; color: rgb(196, 196, 196)"></i> -->
+            <i class="fa-solid fa-xmark" style="font-size: 4rem; color: #2db6ec"></i>
+        </div>
+        <div class="nav_items">
+            <div class="undo item">
+                <img src="./Images/undo.png" alt="Undo">
+                <h2>Undo</h2>
+            </div>
+            <div class="redo item">
+                <img src="./Images/redo.png" alt="Redo">
+                <h2>Redo</h2>
+            </div>
+            <div class="clear item">
+                <i class="fa-solid fa-xmark" style="font-size: 3rem; color: #2db6ec"></i>
+                <h2>Clear Board</h2>
+            </div>
+            <div class="moreoptions item">
+                <i class="fa-solid fa-bars" style="font-size: 3rem; color: #2db6ec"></i>
+                <h2>More Options</h2>
+            </div>
+            
+        </div>
+    </nav>
+    <nav class="toolbar">
+        <div class="bucket tool">
+            <i class="fa-solid fa-fill-drip"></i>
+        </div>
+        <div class="pen tool">
+            <i class="fa-solid fa-pen"></i>
+        </div>
+        <div class="eraser tool">
+            <i class="fa-solid fa-eraser"></i>
+        </div>
+        <div class="shapes tool">
+            <i class="fa-solid fa-shapes"></i>
+        </div>
+        <div class="lines tool">
+            <i class="fa-solid fa-lines-leaning" style="margin-left: 0.5rem;"></i>
+        </div>
+        <div class="textbox tool">
+            <img src="./Images/text_box.png" alt="" style="margin-left: 0.5rem;">
+        </div>
+        
+    </nav>
+    <nav class="tool_option">
+        <div class="bucket option minimizer">
+            <div class="color_container">
+                <input type="color" value="#ffffff" class="color_selector">
+            </div>
+        </div>
+        <div class="pen option minimizer">
+            <input type="range" min="2" max="10" value="4" class="slider">
+            <div class="color_container">
+                <input type="color" value="black" class="color_selector">
+            </div>
+        </div>
+        <div class="eraser option minimizer">
+            <input type="range" min="2" max="30" value="8" class="slider" list="tickmarks">
+        </div>
+        <div class="lines option minimizer">
+            <div class="cont"><img src="./Images/line.png" alt="", title="Line"></div>
+            <div class="cont"><img src="./Images/dashed_line.png" alt="", title="Dashed Line"></div>
+            <div class="cont"><img src="./Images/dot_line.png" alt="" title = "Dot Line"></div>
+            <div class="cont"><img src="./Images/tempdot.png" alt="" title="Dash & Dot Line"></div>
+        </div>
+        <div class="shapes option minimizer">
+            
+            <img src="./Images/fill_rectangle.png" title="fill_rectangle" >
+            <img src="./Images/border_rectangle.png" title="border_rectangle">
+            <img src="./Images/fill_circle.png" title="fill_circle">
+            <img src="./Images/border_circle.png" title="border_circle" >
+        </div>
+        
+    </nav>
+    <!-- <div class="notes_area">
+        
+        <header>
+            <input type="text" class="title" placeholder="Title ...">
+            <div class="item">
+                <i class="fa-solid fa-minus"></i>
+                <i class="fa-solid fa-xmark"></i>
+            </div>
+            
+        </header>
+        <textarea name="content" class="content" cols="23" rows="10"></textarea>
+    </div> -->
+
+
+    <!-- <div class="text-content">
+        <i class="fa-solid fa-xmark"></i>
+        <textarea name="" id="" cols="7" rows="1" ></textarea>
+    </div> -->
+
+    <div class="more-options collapse-options">
+        <div class="notes option-item">
+            <i class="fa-solid fa-note-sticky"></i>
+            <span>Sticky Notes</span>
+        </div>
+        <div class="img option-item">
+            <i class="fa-solid fa-image"></i>
+            <span>Image</span>
+        </div>
+        <div class="save option-item">
+            <i class="fa-solid fa-download"></i>
+            <span>Save</span>
+        </div>
+        <div class="load option-item">
+            <i class="fa-solid fa-upload"></i>
+            <span>Load</span>
+        </div>
+    </div>
+    <canvas id="canvas">
+        
+    </canvas>
+</body>
+</html>
