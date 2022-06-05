@@ -373,25 +373,45 @@ clear_board.addEventListener("click", ()=>{
     Create(canvas);
     createobj_store.draw_arr = [];
 })
-undo.addEventListener("mousedown", ()=>{
-    undo.firstElementChild.style.width = "3.6rem";
-})
-undo.addEventListener("click", ()=>{
+
+
+function redofunc(){
+    if(undoarr.length != 0){
+        createobj_store.draw_arr.push(undoarr.pop());
+    }
+    redraw();
+
+}
+function undofunc(){
     let arr = createobj_store.draw_arr;
     if(arr.length != 0){
         undoarr.push(arr.pop());
     }
-    console.log(undo, undoarr);
     redraw();
+}
+
+
+
+undo.addEventListener("mousedown", ()=>{
+    undo.firstElementChild.style.width = "3.6rem";
+})
+undo.addEventListener("click", ()=>{
+    undofunc();
 })
 
 redo.addEventListener("mousedown", ()=>{
     redo.firstElementChild.style.width = "3.6rem";
 })
 redo.addEventListener("click", ()=>{
-    if(undoarr.length != 0){
-        createobj_store.draw_arr.push(undoarr.pop());
-    }
-    redraw();
+    redofunc();
 })
 
+
+document.addEventListener("keydown",function (e) {
+    if (e.which === 90 && (e.ctrlKey || e.metaKey) && e.shiftKey) {
+        redofunc();
+    }
+    else if (e.which === 90 && (e.ctrlKey || e.metaKey)) {
+        undofunc();
+    }
+});
