@@ -76,6 +76,7 @@ eraser.addEventListener("click", ()=>{
 bucket_option.addEventListener("input", (e)=>{
     
     bucket_color = e.target.value;
+    ctx.fillStyle = bucket_color;
     redraw();
    
 })
