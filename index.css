@@ -243,7 +243,12 @@ html{
     background: transparent;
     
 }
-
+.text-content textarea::-webkit-resizer {
+    border-width: 8px;
+    border-style: solid;
+    border-color: transparent rgb(209, 209, 209) rgb(209, 209, 209) transparent;
+    
+}
 /* -----------------------More-Options------------------- */
 .collapse-options{
     transform: translate(4rem, -15rem) scale(0);
