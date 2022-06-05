@@ -205,12 +205,13 @@ function EventMakerText(newtext){
         del.parentNode.remove();
     })
     text.addEventListener("dblclick", (e)=>{
+        e.preventDefault();
         text.style.border = '1px dashed';
         text.style.resize = 'both';
         del.style.display = 'inline-block'
         text.removeAttribute('readonly');
     })
-    document.addEventListener("click", ()=>{
+    canvas.addEventListener("click", ()=>{
         if(currdraw != "text"){
             if(text.value == null){
                 text.parentNode.remove();
@@ -227,11 +228,10 @@ function EventMakerText(newtext){
     })
     let move = false, posx, posy;
     newtext.addEventListener("mousedown", (e)=>{
-        if(del.style.display != 'none'){
-            move = true;
-            posx = e.clientX-newtext.offsetLeft;
-            posy = e.clientY-newtext.offsetTop;
-        }
+
+        move = true;
+        posx = e.clientX-newtext.offsetLeft;
+        posy = e.clientY-newtext.offsetTop;
     })
     document.addEventListener("mousemove", (e)=>{
         if(move){
@@ -243,8 +243,10 @@ function EventMakerText(newtext){
     })
     document.addEventListener("mouseup", (e)=>{
         move = false;
-        text.style.cursor = 'text';
+        text.style.cursor = 'default';
     })
+    text.addEventListener("mouseover", ()=>{move = false})
+
 }
 
 
