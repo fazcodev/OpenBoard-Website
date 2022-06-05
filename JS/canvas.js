@@ -74,12 +74,9 @@ eraser.addEventListener("click", ()=>{
 })
 
 bucket_option.addEventListener("input", (e)=>{
-
-    Create(canvas);
-    ctx.fillStyle = e.target.value;
-    ctx.fillRect(0, 0, canvas.width, canvas.height);
-    redraw();
+    
     bucket_color = e.target.value;
+    redraw();
    
 })
 pen_option.addEventListener("input", (e)=>{
