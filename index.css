@@ -282,7 +282,7 @@ html{
     touch-action: none;
     top: 0;
     left: 0;
-    cursor: url(pen.png) 3 38, auto;
+    cursor: url(./Images/pen.png) 3 38, auto;
 }
 
 
