@@ -1,6 +1,6 @@
-# OpenBoard-Website
+# WhiteBoard-Website
 
-This OpenBoard website has smooth animations for drawing which are accompanied with mutiple functionalities listed as:--
+This WhiteBoard website has smooth animations for drawing which are accompanied with mutiple functionalities listed as:--
 Free Hand Drawing using pen
 Drawing different shapes 
 Drawing different lines such as solid, dashed, dotted....
