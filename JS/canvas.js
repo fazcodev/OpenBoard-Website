@@ -228,7 +228,8 @@ function enddraw(e){
         {
             let [fx, fy] = [e.clientX, e.clientY];
             newobj.fx = fx, newobj.fy = fy;
-            createobj_store.draw_arr.push(newobj);
+            if(fx != newobj.sx || fy != newobj.sy)createobj_store.draw_arr.push(newobj);
+            
         }
         else if(newobj.x.length != 0){
             createobj_store.draw_arr.push(newobj);
@@ -385,7 +386,8 @@ function redofunc(){
 function undofunc(){
     let arr = createobj_store.draw_arr;
     if(arr.length != 0){
-        undoarr.push(arr.pop());
+        let obj = arr.pop();
+        undoarr.push(obj);
     }
     redraw();
 }
