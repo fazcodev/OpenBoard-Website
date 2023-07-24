@@ -161,7 +161,12 @@ function EventMaker(notes_area){
         posy = e.clientY-this.offsetTop
         // console.log('down');
     })
-
+    notes_area.addEventListener("touchstart", function(e){
+        move_note = true;
+        posx = e.changedTouches[0].clientX-this.offsetLeft;
+        posy = e.changedTouches[0].clientY-this.offsetTop
+        // console.log('down');
+    })
     document.addEventListener("mousemove", function(e){
         if(move_note === true){
             notes_area.style.top = `${e.clientY-posy}px`;
@@ -169,9 +174,14 @@ function EventMaker(notes_area){
         }
         
     })
-    
+    document.addEventListener("touchmove", function(e){
+        if(move_note === true){
+            notes_area.style.top = `${e.changedTouches[0].clientY-posy}px`;
+            notes_area.style.left = `${e.changedTouches[0].clientX-posx}px`;
+        }
+    })
     document.addEventListener("mouseup", ()=>{move_note = false})
-    
+    document.addEventListener("touchend", ()=>{move_note = false})
 
 }
 
@@ -233,6 +243,12 @@ function EventMakerText(newtext){
         posx = e.clientX-newtext.offsetLeft;
         posy = e.clientY-newtext.offsetTop;
     })
+    newtext.addEventListener("touchstart", (e)=>{
+
+        move = true;
+        posx = e.changedTouches[0].clientX-newtext.offsetLeft;
+        posy = e.changedTouches[0].clientY-newtext.offsetTop;
+    })
     document.addEventListener("mousemove", (e)=>{
         if(move){
             text.style.cursor = 'grabbing';
@@ -241,10 +257,24 @@ function EventMakerText(newtext){
         }
         
     })
+    document.addEventListener("touchmove", (e)=>{
+        if(move){
+            text.style.cursor = 'grabbing';
+            newtext.style.top = `${e.changedTouches[0].clientY-posy}px`
+            newtext.style.left = `${e.changedTouches[0].clientX-posx}px`
+        }
+        
+    })
     document.addEventListener("mouseup", (e)=>{
         move = false;
         text.style.cursor = 'default';
     })
+    document.addEventListener("touchend", (e)=>{
+        move = false;
+        text.style.cursor = 'default';
+    })
+
+
     text.addEventListener("mouseover", ()=>{move = false})
 
 }
