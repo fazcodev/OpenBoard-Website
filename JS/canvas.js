@@ -33,9 +33,20 @@ function mousepos(e){
     starty = e.clientY;
     return [e.clientX, e.clientY]
 }
-
+function touchpos(e){
+    startx = e.changedTouches[0].clientX;
+    starty = e.changedTouches[0].clientY;
+    return [e.clientX, e.clientY]
+}
 canvas.addEventListener("mousedown", (e)=>{
     mousepos(e);
+    move = true;
+    startdraw();
+    
+    
+})
+canvas.addEventListener("touchstart", (e)=>{
+    touchpos(e);
     move = true;
     startdraw();
     
@@ -46,10 +57,20 @@ canvas.addEventListener("mousemove", (e)=>{
         draw(e);
     }
 })
+canvas.addEventListener("touchmove", (e)=>{
+    if(move){
+        draw(e.changedTouches[0]);
+    }
+})
 
 canvas.addEventListener("mouseup", (e)=>{
     move = false; 
     enddraw(e);
+    
+})
+canvas.addEventListener("touchend", (e)=>{
+    move = false; 
+    enddraw(e.changedTouches[0]);
     
 })
 
